@@ -1,12 +1,5 @@
-// ============================================================
-//         SINGLETON DESIGN PATTERN - CTS MODULE EXERCISE
-// ============================================================
-
 public class SingletonPattern {
 
-    // --------------------------------------------------------
-    // METHOD 1: Basic Singleton (Lazy Initialization)
-    // --------------------------------------------------------
     static class BasicSingleton {
         private static BasicSingleton instance;
 
@@ -27,9 +20,6 @@ public class SingletonPattern {
     }
 
 
-    // --------------------------------------------------------
-    // METHOD 2: Thread-Safe Singleton
-    // --------------------------------------------------------
     static class ThreadSafeSingleton {
         private static ThreadSafeSingleton instance;
 
@@ -50,9 +40,6 @@ public class SingletonPattern {
     }
 
 
-    // --------------------------------------------------------
-    // METHOD 3: Eager Initialization Singleton
-    // --------------------------------------------------------
     static class EagerSingleton {
         private static final EagerSingleton instance = new EagerSingleton();
 
@@ -70,9 +57,6 @@ public class SingletonPattern {
     }
 
 
-    // --------------------------------------------------------
-    // METHOD 4: Double-Checked Locking Singleton (Best Practice)
-    // --------------------------------------------------------
     static class DoubleCheckedSingleton {
         private static volatile DoubleCheckedSingleton instance;
 
@@ -97,9 +81,6 @@ public class SingletonPattern {
     }
 
 
-    // --------------------------------------------------------
-    // REAL-WORLD EXAMPLE: Database Connection Singleton
-    // --------------------------------------------------------
     static class DatabaseConnection {
         private static DatabaseConnection instance;
         private String connectionStatus;
@@ -126,40 +107,32 @@ public class SingletonPattern {
     }
 
 
-    // --------------------------------------------------------
-    //                     MAIN METHOD
-    // --------------------------------------------------------
     public static void main(String[] args) {
 
-        // Method 1: Basic Singleton
         System.out.println("===== Basic Singleton =====");
         BasicSingleton obj1 = BasicSingleton.getInstance();
         BasicSingleton obj2 = BasicSingleton.getInstance();
         obj1.showMessage();
         System.out.println("Same instance? " + (obj1 == obj2));
 
-        // Method 2: Thread-Safe Singleton
         System.out.println("\n===== Thread-Safe Singleton =====");
         ThreadSafeSingleton ts1 = ThreadSafeSingleton.getInstance();
         ThreadSafeSingleton ts2 = ThreadSafeSingleton.getInstance();
         ts1.showMessage();
         System.out.println("Same instance? " + (ts1 == ts2));
 
-        // Method 3: Eager Singleton
         System.out.println("\n===== Eager Singleton =====");
         EagerSingleton es1 = EagerSingleton.getInstance();
         EagerSingleton es2 = EagerSingleton.getInstance();
         es1.showMessage();
         System.out.println("Same instance? " + (es1 == es2));
 
-        // Method 4: Double-Checked Singleton
         System.out.println("\n===== Double-Checked Locking Singleton =====");
         DoubleCheckedSingleton dc1 = DoubleCheckedSingleton.getInstance();
         DoubleCheckedSingleton dc2 = DoubleCheckedSingleton.getInstance();
         dc1.showMessage();
         System.out.println("Same instance? " + (dc1 == dc2));
 
-        // Real-World: Database Connection
         System.out.println("\n===== Real-World: Database Connection =====");
         DatabaseConnection db1 = DatabaseConnection.getInstance();
         DatabaseConnection db2 = DatabaseConnection.getInstance();
